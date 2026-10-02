@@ -1,0 +1,20 @@
+{
+  "name": "smoke",
+  "description": "Quick health check: spawn, hop forward, turn, one jump, one slam, shots along the way.",
+  "steps": [
+    "wait 0.5",
+    { "do": "shot", "label": "spawn" },
+    { "do": "move", "stick": [0, 1], "seconds": 1.5 },
+    { "do": "look", "turn": 90 },
+    { "do": "move", "stick": [0, 1], "seconds": 1.0 },
+    { "do": "jump", "hold": 0.6 },
+    "waitUntil apex",
+    { "do": "shot", "label": "jump-apex" },
+    "slam",
+    { "do": "waitUntil", "until": "bounce", "type": "Slam", "timeout": 4 },
+    { "do": "check", "what": "bounces", "gt": 3, "label": "ball is bouncing" },
+    { "do": "check", "what": "minZ", "gt": -500, "label": "did not fall out of the world" },
+    "wait 0.5",
+    { "do": "shot", "label": "end" }
+  ]
+}

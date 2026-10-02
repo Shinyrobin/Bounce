@@ -1,0 +1,16 @@
+{
+  "name": "jump_slam",
+  "description": "Measures jump height and the slam carry-through bounce, with a side-view contact sheet of the slam.",
+  "steps": [
+    "wait 1",
+    { "do": "jump", "hold": 1.2 },
+    { "do": "waitUntil", "until": "apex" },
+    { "do": "check", "what": "z", "gt": 250, "label": "jump bounce reaches its height" },
+    { "do": "shot", "label": "apex", "offset": [0, -900, 100] },
+    "slam",
+    { "do": "burst", "label": "slam-side", "count": 6, "interval": 0.08, "offset": [0, -700, 150] },
+    { "do": "waitUntil", "until": "apex", "timeout": 4 },
+    { "do": "check", "what": "lastBounceOut", "gt": 1200, "label": "slam bounce is big" },
+    { "do": "shot", "label": "after-slam" }
+  ]
+}

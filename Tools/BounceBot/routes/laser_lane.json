@@ -1,0 +1,23 @@
+{
+  "name": "laser_lane",
+  "description": "Laser regression: hopping into Laser_Lane (x=1350) without jumping must pop + respawn; holding jump over it must survive.",
+  "map": "Lvl_BounceTest",
+  "steps": [
+    "wait 0.5",
+    { "do": "log", "text": "--- A: plain hops into the laser (expect death) ---" },
+    { "do": "move", "heading": 180, "seconds": 4, "until": "dead" },
+    { "do": "check", "what": "dead", "eq": 1, "tol": 0, "label": "laser killed the ball" },
+    { "do": "burst", "label": "A-pop", "count": 6, "interval": 0.25, "offset": [500, 0, 250], "follow": true },
+    { "do": "waitUntil", "until": "alive", "timeout": 8 },
+    "wait 0.5",
+    { "do": "shot", "label": "A-respawned" },
+    { "do": "check", "what": "deaths", "eq": 1, "tol": 0, "label": "died once on the laser" },
+    { "do": "check", "what": "x", "gt": 2400, "label": "respawned back at the start" },
+    { "do": "log", "text": "--- B: jump-hold over the laser (expect survival) ---" },
+    { "do": "look", "yaw": 180 },
+    { "do": "moveTo", "to": [900, 500, 0], "jump": true, "tolerance": 120, "timeout": 8, "required": false },
+    { "do": "shot", "label": "B-past-laser" },
+    { "do": "check", "what": "deaths", "eq": 1, "tol": 0, "label": "no extra death when jumping" },
+    { "do": "check", "what": "x", "lt": 1250, "label": "got past the laser" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "square",
+  "description": "Steering test: hop a 1200cm square around the start with moveTo, checking it arrives at each corner.",
+  "start": "playerStart",
+  "steps": [
+    "wait 0.5",
+    { "do": "get", "path": "BallMovement.MaxSpeed" },
+    { "do": "path", "points": [[600, 0, 0], [600, 1200, 0], [-600, 1200, 0], [-600, 0, 0]], "tolerance": 150, "timeout": 30, "relative": true },
+    { "do": "shot", "label": "back-near-start" },
+    { "do": "check", "what": "distance", "gt": 3000, "label": "travelled the square" }
+  ]
+}
