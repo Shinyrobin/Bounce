@@ -4,19 +4,6 @@
 	"Category": "",
 	"Description": "",
 	"Modules": [
-		{
-			"Name": "Bounce",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"AdditionalDependencies": [
-				"Engine"
-			]
-		},
-		{
-			"Name": "BounceEditor",
-			"Type": "Editor",
-			"LoadingPhase": "Default"
-		}
 	],
 	"Plugins": [
 		{
