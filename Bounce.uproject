@@ -3,8 +3,6 @@
 	"EngineAssociation": "5.8",
 	"Category": "",
 	"Description": "",
-	"Modules": [
-	],
 	"Plugins": [
 		{
 			"Name": "ModelingToolsEditorMode",
@@ -24,6 +22,16 @@
 		{
 			"Name": "AllToolsets",
 			"Enabled": true
+		},
+		{
+			"Name": "BlueprintAssist",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/9e895371fa3a471c87337860d6f341ff"
+		},
+		{
+			"Name": "AutoSizeComments",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ae89a2c4ab384de0a3f213b23de324f3"
 		}
 	]
 }
